@@ -1,0 +1,136 @@
+# depslib dependency file v1.0
+1403375295 source:c:\users\gabriela mattos\google drive\ufscar\2014.1\qualeonumero\arvore.cpp
+	"Arvore.h"
+	<iostream>
+
+1403375308 c:\users\gabriela mattos\google drive\ufscar\2014.1\qualeonumero\arvore.h
+	"Node.h"
+
+1403253402 c:\users\gabriela mattos\google drive\ufscar\2014.1\qualeonumero\node.h
+
+1403375128 source:c:\users\gabriela mattos\google drive\ufscar\2014.1\qualeonumero\jogo_adivinhacao.cpp
+	<iostream>
+	"cabecalho.h"
+	"Node.h"
+	"Arvore.h"
+	"string.h"
+
+1403359776 c:\users\gabriela mattos\google drive\ufscar\2014.1\qualeonumero\cabecalho.h
+	<iostream>
+	<string>
+	<fstream>
+	<cstdlib>
+	<ctime>
+	"Arvore.h"
+	"Node.h"
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_native_dialog.h>
+	"jogo_adivinhacao.h"
+
+1403335295 c:\users\gabriela mattos\google drive\ufscar\2014.1\qualeonumero\jogo_adivinhacao.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"Arvore.h"
+	"Node.h"
+
+1403337090 source:c:\users\gabriela mattos\google drive\ufscar\2014.1\qualeonumero\main.cpp
+	"jogo_adivinhacao.h"
+	<iostream>
+
+1403333457 source:c:\users\gabriela mattos\google drive\ufscar\2014.1\qualeonumero\node.cpp
+	"Node.h"
+	<iostream>
+
+1403375295 source:c:\users\breno\desktop\qualeonumero\arvore.cpp
+	"Arvore.h"
+	<iostream>
+
+1403375308 c:\users\breno\desktop\qualeonumero\arvore.h
+	"Node.h"
+
+1403253402 c:\users\breno\desktop\qualeonumero\node.h
+
+1403337090 source:c:\users\breno\desktop\qualeonumero\main.cpp
+	"jogo_adivinhacao.h"
+	<iostream>
+
+1403403171 c:\users\breno\desktop\qualeonumero\jogo_adivinhacao.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"Arvore.h"
+	"Node.h"
+
+1403333457 source:c:\users\breno\desktop\qualeonumero\node.cpp
+	"Node.h"
+	<iostream>
+
+1403403171 source:c:\users\breno\desktop\qualeonumero\jogo_adivinhacao.cpp
+	<iostream>
+	"cabecalho.h"
+	"Node.h"
+	"Arvore.h"
+	"string.h"
+
+1403402619 c:\users\breno\desktop\qualeonumero\cabecalho.h
+	<iostream>
+	<string>
+	<fstream>
+	<cstdlib>
+	<ctime>
+	"Arvore.h"
+	"Node.h"
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_native_dialog.h>
+	"jogo_adivinhacao.h"
+
+1403375295 source:c:\users\gabriela mattos\google drive\ufscar\2014.1\ed\qualeonumero\arvore.cpp
+	"Arvore.h"
+	<iostream>
+
+1403375308 c:\users\gabriela mattos\google drive\ufscar\2014.1\ed\qualeonumero\arvore.h
+	"Node.h"
+
+1403253402 c:\users\gabriela mattos\google drive\ufscar\2014.1\ed\qualeonumero\node.h
+
+1403403171 source:c:\users\gabriela mattos\google drive\ufscar\2014.1\ed\qualeonumero\jogo_adivinhacao.cpp
+	<iostream>
+	"cabecalho.h"
+	"Node.h"
+	"Arvore.h"
+	"string.h"
+
+1403402619 c:\users\gabriela mattos\google drive\ufscar\2014.1\ed\qualeonumero\cabecalho.h
+	<iostream>
+	<string>
+	<fstream>
+	<cstdlib>
+	<ctime>
+	"Arvore.h"
+	"Node.h"
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<allegro5/allegro_native_dialog.h>
+	"jogo_adivinhacao.h"
+
+1403616451 c:\users\gabriela mattos\google drive\ufscar\2014.1\ed\qualeonumero\jogo_adivinhacao.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"Arvore.h"
+	"Node.h"
+
+1403337090 source:c:\users\gabriela mattos\google drive\ufscar\2014.1\ed\qualeonumero\main.cpp
+	"jogo_adivinhacao.h"
+	<iostream>
+
+1403333457 source:c:\users\gabriela mattos\google drive\ufscar\2014.1\ed\qualeonumero\node.cpp
+	"Node.h"
+	<iostream>
+

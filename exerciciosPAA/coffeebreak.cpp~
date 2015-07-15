@@ -1,0 +1,131 @@
+#include "iostream"
+#include <iomanip>
+#include <cstdlib>
+#include <stdio.h>
+
+
+using namespace std;
+
+typedef struct porcao
+{
+	double c; //custo (em reais) por porcao de comida
+	double v; //volume de uma porcao de comida
+	double cv; //custo por volume da porcao
+} Porcao;
+
+/*
+	Funcao: insertionDortAdaptado
+ 	Baseado: slides de aula PAA 2014.2
+  	Objetivo: fazer uma ordenação a partir da variavel cv da struct Comida e em um vetor auxiliar salvar a posicao dos indices originais de Comida, para nao precisar alterar a ordem das informacoes que foram digitadas
+*/
+
+void insertionSortAdaptado(int *vet_aux, Porcao *coffee, int tam)
+{
+	int i, k;
+	Porcao aux1;
+	Porcao *aux = new Porcao[tam];
+
+	for(i=0; i<tam; i++)
+		aux[i]=coffee[i];
+
+	for (int i=1; i<tam; i++)
+	{
+		int j=i;
+		while ( j>0 && aux[j-1].cv > aux[j].cv)
+		{
+
+			aux1 = aux[j-1];
+			aux[j-1] = aux[j];
+			aux[j] = aux1;
+
+	    		j--;
+		}
+	}
+
+    	i=0;
+	while (i<tam)
+	{
+		for(k=0; k<tam; k++)
+			if(aux[i].v == coffee[k].v && aux[i].c == coffee[k].c)
+			    vet_aux[i] = k;
+		i++;
+	}
+
+}
+
+/*
+	Funcao: coffeeGreedy
+  	Objetivo: calcular os maiores valores de porções vezes custos para os alunos que desejam comer mais e do mais caro, dependo do tamanho do quanto seu estomago suporta.
+*/
+
+int coffeeGreedy(Porcao *coffee, double *e, int n, int a)
+{
+	int *vet_pos = new int[n];
+
+	int i,k, j;
+	double soma;
+	double consumo;
+
+	// um vetor contendo a posição dos maiores custos por volume
+	insertionSortAdaptado(vet_pos, coffee, n);
+
+	for(i=0; i<a; i++)
+	{
+	
+		soma = 0;
+		k = n-1;
+
+		while (e[i] != 0 && k>=0)
+		{
+			j = vet_pos[k];
+			if (e[i] >= coffee[j].v)
+				consumo = coffee[j].v;
+	   		else
+				consumo = e[i];
+
+			e[i]=e[i]-consumo;
+			soma=soma+(consumo*coffee[j].cv);
+			k--;
+		}	
+		cout << setiosflags (ios::fixed) << setprecision (4) <<  soma <<endl;
+	}
+
+	delete [] vet_pos;
+}
+
+
+int main()
+{
+	Porcao *coffee;
+	int i,n,a;
+	double *e;
+
+	do
+	{
+		cin >> n;
+		cin >> a;
+		coffee = new Porcao[n];
+		e = new double[a];
+
+		for(i=0; i<n; i++)
+			cin >> coffee[i].c;
+
+		for(i=0; i<n; i++)
+		{
+			cin >> coffee[i].v;
+			coffee[i].cv = coffee[i].c/coffee[i].v;
+		}
+
+		for(i=0; i<a; i++)		
+			cin >> e[i];
+		
+
+		coffeeGreedy(coffee,e,n,a);
+
+		delete[] coffee;
+		delete[] e;
+	}
+	while (n or a);
+
+	return(0);
+}

@@ -1,0 +1,34 @@
+int coffeeGreedy(Porcao *coffee, double *e, int n, int a)
+{
+	int *vet_pos = new int[n];
+
+	int i,k, j;
+	double soma;
+	double consumo;
+
+	// um vetor contendo a posição dos maiores custos por volume
+	insertionSortAdaptado(vet_pos, coffee, n);
+
+	for(i=0; i<a; i++)
+	{
+	
+		soma = 0;
+		k = n-1;
+
+		while (e[i] != 0 && k>=0)
+		{
+			j = vet_pos[k];
+			if (e[i] >= coffee[j].v)
+				consumo = coffee[j].v;
+	   		else
+				consumo = e[i];
+
+			e[i]=e[i]-consumo;
+			soma=soma+(consumo*coffee[j].cv);
+			k--;
+		}	
+		cout << setiosflags (ios::fixed) << setprecision (4) <<  soma <<endl;
+	}
+
+	delete [] vet_pos;
+}

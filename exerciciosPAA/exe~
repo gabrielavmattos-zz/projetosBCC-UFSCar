@@ -1,0 +1,34 @@
+void insertionSortAdaptado(int *vet_aux, Comida *coffee, int tam)
+{
+	int i, k;
+	Porcao aux1;
+	Porcao *aux = new Comida[tam];
+
+	for(i=0; i<tam; i++)
+		aux[i]=coffee[i];
+
+	for (int i=1; i<tam; i++)
+	{
+		int j=i;
+		while ( j>0 && aux[j-1].cv > aux[j].cv)
+		{
+
+			aux1 = aux[j-1];
+			aux[j-1] = aux[j];
+			aux[j] = aux1;
+
+	    		j--;
+		}
+	}
+
+    	i=0;
+	while (i<tam)
+	{
+		for(k=0; k<tam; k++)
+			if(aux[i].v == coffee[k].v && aux[i].c == coffee[k].c)
+			    vet_aux[i] = k;
+		i++;
+	}
+
+}
+

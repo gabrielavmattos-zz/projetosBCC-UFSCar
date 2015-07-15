@@ -1,0 +1,17 @@
+T4: Simulando reconhecimento de padrões através de caminhos ótimos em grafos (classificação supervisionada)
+O programa deve ler um grafo ponderado de um arquivo (txt, graphml, gml, ...) e através do algoritmo de Dijkstra (com várias fontes) encontrar grupos nos dados a partir do crescimentos de K árvores com sementes definidas inicialmente.
+
+METODOLOGIA
+
+Para um problema de classificação em K grupos ou comunidades, deve-se definir K sementes iniciais para o algoritmo (uma para cada grupo). Isso é feito zerando o custo inicial de mais de um vértice (várias fontes). Cada semente deve ser escolhida como sendo o protótipo representativo da região em questão (ao se definir de onde o crescimento de cada árvore deve começar estamos embutindo supervisão ao método). Dessa forma, o resultado final do agrupamento depende muito da forma com que as sementes são definidas, ou seja, diferentes sementes podem produzir resultados bastante distintos. Um processo de competição entre as sementes irá ocorrer, sendo que cada vértice do grafo ao final será conquistado pela semente que lhe oferecer o menor caminho.
+
+OBS: Note que os grafos a seguir não são completos como no projeto das MST's. 
+
+
+Considerando o grafo a seguir de 59 vértices, mostre os resultados obtidos para:
+a) 3 agrupamentos (K = 3) com sementes espalhadas (distantes uma da outra)
+b) 3 agrupamentos (K = 3) com sementes próximas uma da outra
+
+
+
+- Dúvida: quando existem 2, como faz?

@@ -1,0 +1,175 @@
+# -*- coding: utf-8 -*-
+
+
+import networkx as nx
+import numpy as np
+import random as random
+import matplotlib.pyplot as plt
+
+G = np.loadtxt('wg59_dist.txt', dtype=int) #leitura da matriz
+V = np.loadtxt('wg59_name.txt', dtype='str')
+
+#print G
+#print V
+
+#TEM QUE IMPLEMENTAR A PARTE DE VER SE VAI FORMAR CICLO OU NÃO
+'''
+def algKruskal(G,V):
+    
+    custo = np.zeros(len(V)) #custo de cada aresta
+    pred = np.zeros (len(V))
+    fila = V
+    print "\n custos \n"
+    print custo
+    
+    print "\n pred \n"
+    print pred
+    
+    print "\n fila \n"
+    print pred
+    
+    raiz = random.randint(0, len(V))
+    
+    print raiz
+    pos_min_i = 0
+    pos_min_j = 0
+    min = 555
+    j=0
+	    used = np.zeros((len(V), len(V)))
+    used[0][0]=3
+    
+    while (j < len(V)):
+        min = 555
+        i=0;
+        k=0;
+        
+        for i in range (len(V)):
+            for k in range(len(V)):
+                if( min > G[i][k] and G[i][k]>0 and used[i][k]==0 ):
+                    print "aqui"
+                    min = G[i][k]
+                    pos_min_i = i   
+                    pos_min_j = k
+        
+        custo[j] = G[pos_min_i][pos_min_j]            
+        print custo
+        
+        print "(", pos_min_i,",",pos_min_j,")"
+        used[pos_min_i][pos_min_j]=1
+        used[pos_min_j][pos_min_i]=1
+        print used
+        j = j+1
+    
+algKruskal(G,V)
+'''    
+   
+def algPrim(G,V):
+ 
+    custo = ['inf']*len(V) #custo de cada aresta
+    fila = ['inf']*len(V)
+    pred = np.zeros (len(V))
+    
+    vertice_atual = random.randint(0, len(V)) #o vertice inicial sera escolhido aleatoriamente
+    
+    print vertice_atual
+    j=0
+    
+    custo[vertice_atual] = 0
+    a = np.zeros(len(V))
+    k=0
+    pred[vertice_atual] = 'inf'
+    raiz = vertice_atual
+    while (max(fila)!=0):
+        
+        j = j+1
+        
+        min = 10000  
+       
+        fila[vertice_atual]=0
+        
+        for i in range(len(V)):
+            if(fila[i] > G[vertice_atual][i] and fila[i]!= 0):
+                fila[i] = int(G[vertice_atual][i])
+                pred[i] = int(vertice_atual)
+                
+        for i in range (len(V)):
+            if( min > fila[i] and fila[i]>0):
+                print "ssqui" , i, "    custo", fila[i]
+                pos_min = i
+                min = fila[i]
+                
+    #   while(fila[pos_min]==0 and max(fila)!=0):
+     #      min = 10000
+      #     k=k+1
+       #    for i in range (len(V)):
+        #       if( min>fila[i] and fila[i]>0):
+         #          print "-----squi" , i, "    custo", G[vertice_atual][i]
+          #         pos_min = i
+         #          min = fila[i]
+         #  print "erro - vertice atual: '", pos_min,"' fila: '", fila[pos_min]
+            
+        print "erro"
+            
+        custo[pos_min] = int(fila[pos_min])
+        print "custo " ,custo
+        print "pred ", pred
+     #   pred[pos_min] = vertice_atual
+        print "fila", fila
+        
+        vertice_atual = pos_min    
+        
+    
+    #plotando a MST encontrada
+    MST = nx.Graph()
+    vet = np.zeros(len(V))
+    
+    
+    for i in range(len(V)):
+            vet[i] = int(i)
+            
+    print vet
+    print pred
+    edges = zip(vet,pred)
+    
+    MST.add_edges_from(edges)
+    
+    plt.figure()		#// Cria figura para desenhar grafo: 15 é a dimensão da imagem
+    nx.draw(MST,dim = 100, k=custo, with_labels=True, node_size=450, font_size=10, edge_width=10, alpha=1, arrows=False)
+    plt.savefig('arquivo.png')	#// Outros formatos: pdf, svg, ...
+
+    #nx.draw_networkx_edges(MST, edges)
+    plt.axis('off')
+    plt.show()
+
+    #obter 3 grupos, vamos remover as duas maiores arestas
+    maior = np.zeros(3)
+    m = max(custo)
+    maior[0] = int(custo.index(m))
+    
+    custo.remove(m)
+    
+    m = max(custo)
+    maior[1] = int(custo.index(m))
+    
+    custo.remove(m)
+    
+    
+    preds = np.zeros(3)
+    preds[0] = pred[maior[0]]
+    preds[1] = pred[maior[1]]
+    
+    print "maior: ", maior
+    print "pred: ", preds
+
+    MST.remove_edge(maior[0], preds[0])
+    MST.remove_edge(maior[1], preds[1])
+    plt.figure()		#// Cria figura para desenhar grafo: 15 é a dimensão da imagem
+    nx.draw(MST,  label='MST', k=custo, fixed=pred, with_labels=True, node_size=450, font_size=10, edge_width=10, alpha=1, arrows=False)
+    plt.savefig('arquivo2.png')	#// Outros formatos: pdf, svg, ...
+
+    #nx.draw_networkx_edges(MST, edges)
+    plt.axis('off')
+    plt.show()
+
+
+algPrim(G,V)
